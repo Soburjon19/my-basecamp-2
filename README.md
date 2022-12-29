@@ -16,21 +16,37 @@ npm start dev:start
 npm start
 ```
 # Abilities 
+<img align="center" alt="image" src="/images/Home.png">
 <ul>
   <li>Login</li>
 </ul>
 <img align="center" alt="image" src="/images/Login.png">
 <ul>
-<li>Auth</li>
+  <li>Sign up</li>
 </ul>
-<img align="center" alt="image" src="./images/Login.jpg">
+<img align="center" alt="image" src="./images/Sign_up.png">
 <p>If you don't have an account, you can create one.</p>
-<img align="center" alt="image" src="./images/Home.jpg">
 <ul>
-<li>Add Project</li>
+  <li>Home</li>
 </ul>
-<img align="center" alt="image" src="./images/Add-new-project.jpg">
+<img align="center" alt="image" src="./images/Home.png">
 <ul>
-<li>Edit Profile</li>
+  <li>Add Project</li>
 </ul>
-<img align="center" alt="image" src="./images/Edit-profile.jpg">
+<img align="center" alt="image" src="./images/Add_project.png">
+<ul>
+  <li>Edit Profile</li>
+</ul>
+<img align="center" alt="image" src="./images/Edit_profile.png">
+<ul>
+  <li>Comments</li>
+</ul>
+<img align="center" alt="image" src="./images/Comments.png">
+<ul>
+  <li>Project settings</li>
+</ul>
+<img align="center" alt="image" src="./images/Project_settings.png">
+<ul>
+  <li>Project overview</li>
+</ul>
+<img align="center" alt="image" src="./images/Project_overview.png">
