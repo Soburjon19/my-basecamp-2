@@ -16,7 +16,6 @@ npm start dev:start
 npm start
 ```
 # Abilities 
-<img align="center" alt="image" src="/images/Home.png">
 <ul>
   <li>Login</li>
 </ul>
