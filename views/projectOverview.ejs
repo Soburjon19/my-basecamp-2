@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>project overview</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% projects.map(data=> { %>
+      <div class="text-center">
+        <h2><%= data.name %></h2>
+        <p>
+          <i class="fa-solid fa-pen"></i>
+          Created by: <b><%= data.user %></b>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div id="#members">
+            <h3>Members</h3>
+            <ul>
+              <% if (members) { members.map(member => { %>
+              <li><%= member.username %></li>
+              <% }) }%>
+            </ul>
+          </div>
+          <h3>Topics</h3>
+          <form
+            action="/project/overView/addTopic/<%= data.id %>"
+            class="d-flex"
+            method="post"
+            id="topics"
+          >
+            <input
+              type="text"
+              placeholder="Add new Task"
+              name="topic"
+              required
+              class="form-control me-2"
+            />
+            <button class="btn btn-success">Add topic</button>
+          </form>
+          <ul>
+            <% if (topics) { topics.map(topics => { %>
+            <li><%= topics.topic %></li>
+            <% }) }%>
+          </ul>
+          <h3>Tasks</h3>
+          <form
+            action="/project/overView/addTask/<%= data.id %>"
+            class="d-flex"
+            method="post"
+            id="#tasks"
+          >
+            <input
+              type="text"
+              placeholder="Add new Task"
+              name="task"
+              required
+              class="form-control me-2"
+            />
+            <button class="btn btn-success">Add task</button>
+          </form>
+          <ul>
+            <% if (tasks) { tasks.map(task => { %>
+            <li><%= task.task %></li>
+            <% }) }%>
+          </ul>
+          <h3>Add attachments</h3>
+          <form
+            enctype="multipart/form-data"
+            action="/project/addAttachment/<%= data.id %>"
+            class="d-flex"
+            method="post"
+            id="#attachments"
+          >
+            <input type="file" name="file" required class="form-control me-2" />
+            <button class="btn btn-success">
+              <i class="fa-solid fa-file"></i>
+            </button>
+          </form>
+          <ul class="mt-2">
+            <% if (attachments) { attachments.map(attachment => { %>
+            <li class="w-50 mb-2">
+              <img
+                src="/uploads/images/<%= attachment.file %>"
+                class="img-fluid"
+                alt="attachment"
+              />
+            </li>
+            <% }) }%>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <div class="d-grid col-gap-2">
+            <a
+              href="/project/projectSettings/<%= data.id %>"
+              class="btn btn-primary"
+              ><i class="fa-solid fa-gear me-2"></i>Edit project</a
+            >
+            <a href="#members" class="btn btn-secondary my-2"
+              ><i class="fa-solid fa-users me-2"></i>Members</a
+            >
+            <a href="#topics" class="btn btn-secondary"
+              ><i class="fa-solid fa-comment me-2"></i>Topics</a
+            >
+            <a href="#taks" class="btn btn-secondary my-2"
+              ><i class="fa-solid fa-list me-2"></i>Taks</a
+            >
+            <a href="#attachments" class="btn btn-secondary"
+              ><i class="fa-solid fa-file me-2"></i>Attachments</a
+            >
+          </div>
+        </div>
+      </div>
+      <% })%>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css");
+@import url("./bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  box-sizing: border-box;
+  outline: none;
+}
+
+:root {
+  --bg-dark: #2f4550;
+  --bg-primary: #007ea7;
+  --bg-success: #84dcc6;
+  --bg-danger: #ef6351;
+  --bg-warning: #ffd97d;
+  --bg-secondary: #fef9ef;
+}
+
+.bg-dark {
+  background-color: var(--bg-dark) !important;
+}
+
+.btn-primary {
+  background-color: var(--bg-primary) !important;
+}
+.btn-success {
+  background-color: var(--bg-success) !important;
+}
+
+.btn-danger {
+  background-color: var(--bg-danger) !important;
+}
+
+.btn-secondary {
+  background-color: var(--bg-secondary) !important;
+  color: var(--bg-dark) !important;
+}
+
+.btn-dark {
+  background-color: var(--bg-dark) !important;
+}
+
+.btn-warning {
+  background-color: var(--bg-warning) !important;
+}
+
+::selection {
+  background-color: var(--bg-danger);
+  color: rgba(0, 0, 0, 0.877);
+}
+
+.container {
+  margin-top: 60px;
+}
+
+nav {
+  padding: 10px 40px;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 9999;
+}
+
+
+nav > .nav-links > li {
+  padding: 0 15px;
+  list-style-type: none;
+}
+
+nav > .nav-links > li > a {
+  text-decoration: none;
+  color: var(--bg-primary);
+  font-size: 25px;
+}

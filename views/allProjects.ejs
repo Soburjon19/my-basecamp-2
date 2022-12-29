@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <nav class="bg-light d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <h2>Hello <%= rows[0].username %></h2>
+      </div>
+      <ul class="nav-links m-0 d-flex align-items-center justify-content-between">
+        <li>
+          <form
+            action="/serarchUser"
+            method="get"
+            class="d-flex align-items-center justify-content-between"
+          >
+            <input
+              required
+              type="text"
+              placeholder="Search users"
+              name="uName"
+              class="mx-2 form-control"
+            />
+            <button class="btn btn-primary">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </li>
+        <li>
+          <a class="text-success" href="/project/addPoject">
+            <i class="fa-solid px-2 fa-plus"></i>Add project</a>
+        </li>
+        <li>
+          <a class="text-dark" href="/editProfile"
+            ><i class="fa-solid fa-user-gear px-2"></i>Edit profile</a>
+        </li>
+        <li>
+          <a class="text-danger" href="/auth/logout">
+            <i class="fa-solid fa-arrow-right-from-bracket px-2"></i>Log Out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row">
+        <h2 class="text-center mt-5">Projects</h2>
+        <div class="col-md-4">
+          <a href="/project/allProjects" class="btn btn-secondary w-100">
+            <i class="fa-solid fa-star-of-life px-2"></i>All Projects
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="/auth/login" class="btn btn-outline-secondary w-100">
+            <i class="fa-solid fa-pen px-2"></i>Created by me
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn btn-outline-secondary w-100">
+            <i class="fa-solid fa-users px-2"></i>Shared with me
+          </a>
+        </div>
+        <% projects.forEach(project => { %>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card my-1">
+            <div class="cart-header rounded p-2 bg-dark text-light">
+              <div class="d-flex align-items-center justify-content-between">
+                <%= project.name %> <% if (project.user === username) { %>
+                <a
+                  class="text-decoration-none text-light"
+                  href="/project/projectSettings/<%= project.id %>"
+                  ><i class="fa-solid fa-gear"></i
+                ></a>
+                <% } else { %>
+                <a
+                  class="text-decoration-none text-light"
+                  href="/user/<%= project.user %>"
+                  ><i class="fa-solid fa-eye"></i
+                ></a>
+                <% } %>
+              </div>
+              <% if (project.user === username) { %>
+              <i class="fa-solid fa-pen"></i>
+              <%= project.user %> <% } else { %>
+              <i class="fa-solid fa-pen"></i>
+              <%= project.user %> <% } %>
+            </div>
+            <div class="card-body">
+              <p><%= project.description %></p>
+            </div>
+            <div
+              class="card-footer d-flex align-items-center justify-content-between"
+            >
+              <% if (project.user === username) { %>
+              <a class="btn btn-warning" href="/comments/<%= project.id %>"
+                ><i class="fa-solid fa-comment"></i
+              ></a>
+              <a
+                class="btn btn-danger"
+                href="/project/deleteProject/<%= project.id %>"
+                ><i class="fa-solid fa-trash"></i
+              ></a>
+              <% } else { %>
+              <a
+                class="btn btn-warning w-100"
+                href="/comments/<%= project.id %>"
+                ><i class="fa-solid fa-comment me-2"></i>Comments</a
+              >
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <%}); %>
+      </div>
+    </div>
+  </body>
+</html>
